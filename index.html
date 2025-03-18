@@ -32,20 +32,26 @@
     </div>
     <script>
         window.onload = function() {
-            const savedTheme = localStorage.getItem("theme");
             const body = document.body;
             const toggleBtn = document.querySelector('.toggle-btn');
-
+            const savedTheme = localStorage.getItem("theme");
+    
+            // Apply saved theme (if available)
             if (savedTheme) {
+                body.classList.remove("light-mode", "dark-mode");
                 body.classList.add(savedTheme);
                 toggleBtn.innerText = savedTheme === "dark-mode" ? "☀️" : "🌙";
+            } else {
+                // Default to light mode if no saved preference
+                body.classList.add("light-mode");
+                toggleBtn.innerText = "🌙";
             }
         };
-
+    
         function toggleMode() {
             const body = document.body;
             const toggleBtn = document.querySelector('.toggle-btn');
-
+    
             if (body.classList.contains("light-mode")) {
                 body.classList.replace("light-mode", "dark-mode");
                 toggleBtn.innerText = "☀️";
