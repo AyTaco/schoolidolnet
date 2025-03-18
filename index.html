@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolIdol.net Landing Page</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    <div class="background light-bg"></div>
+    <div class="background dark-bg"></div>
+
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+    <div class="center-content">
+        <div class="logo">
+            <img src="images/logo-main.png" alt="Logo">
+        </div>
+        <div class="notice" align="center">
+            <b>NOTE:</b> This site (and all subsequent sites) are very much under construction!
+            <br>
+            Things <i>will</i> change around a lot so please bear with us!
+        </div>
+        <div class="container">
+            <a href="https://google.com" class="button"><img src="images/button-1.png" alt="Unofficial Wiki"></a>
+            <a href="https://google.com" class="button"><img src="images/button-2.png" alt="Fan Content Archive"></a>
+        </div>
+    </div>
+    <div class="copyright-banner">
+        Copyright &copy; 2025 Pipopipo Co Ltd. (probably idk)
+    </div>
+    <script>
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            const body = document.body;
+            const toggleBtn = document.querySelector('.toggle-btn');
+
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                toggleBtn.innerText = savedTheme === "dark-mode" ? "☀️" : "🌙";
+            }
+        };
+
+        function toggleMode() {
+            const body = document.body;
+            const toggleBtn = document.querySelector('.toggle-btn');
+
+            if (body.classList.contains("light-mode")) {
+                body.classList.replace("light-mode", "dark-mode");
+                toggleBtn.innerText = "☀️";
+                localStorage.setItem("theme", "dark-mode");
+            } else {
+                body.classList.replace("dark-mode", "light-mode");
+                toggleBtn.innerText = "🌙";
+                localStorage.setItem("theme", "light-mode");
+            }
+        }
+    </script>
+</body>
+</html>
