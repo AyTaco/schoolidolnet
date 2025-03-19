@@ -15,7 +15,7 @@
     <button class="toggle-btn" onclick="toggleMode()">🌙</button>
     <div class="center-content">
         <div class="logo">
-            <img src="images/logo-main.png" alt="Logo">
+            <img src="images/logo-main.png" alt="Logo" draggable="false">
         </div>
         <div class="notice" align="center">
             <b>NOTE:</b> This site (and all subsequent sites) are very much under construction!
@@ -65,12 +65,6 @@
     /* Disable right click > save */
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
-        });
-    /* Disable drag img to tab */
-        document.addEventListener("dragstart", function(e) {
-            if (e.target.tagName === "IMG") {
-              e.preventDefault();
-            }
         });
     </script>
 </body>
