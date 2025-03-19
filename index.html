@@ -66,6 +66,10 @@
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
         });
+    /* Disable mobile long press > save */
+        document.addEventListener("touchstart", function(e) {
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
