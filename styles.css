@@ -73,12 +73,12 @@ body {
 .logo {
     text-align: center;
     margin-bottom: 20px;
-    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .logo img {
     max-width: 600px;
     height: auto;
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .container {
