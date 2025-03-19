@@ -78,7 +78,7 @@ body {
 .logo img {
     max-width: 600px;
     height: auto;
-    filter: drop-shadow(5px 5px 5px rgba(66, 66, 66, 0.41));
+    filter: drop-shadow(3px 3px 3px rgba(66, 66, 66, 0.25));
 }
 
 .container {
