@@ -1,9 +1,10 @@
+<!--Help me lmao-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SchoolIdol.net Landing Page</title>
+    <title>SchoolIdol.net | Landing Page</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -11,6 +12,7 @@
 <body class="light-mode">
     <div class="background light-bg"></div>
     <div class="background dark-bg"></div>
+    <div class="random-idol"></div>
 
     <button class="toggle-btn" onclick="toggleMode()">🌙</button>
     <div class="center-content">
@@ -23,14 +25,39 @@
             Things <i>will</i> change around a lot so please bear with us!
         </div>
         <div class="container">
-            <a href="https://google.com" class="button"><img src="images/button-1.png" alt="Unofficial Wiki"></a>
-            <a href="https://google.com" class="button"><img src="images/button-2.png" alt="Fan Content Archive"></a>
+            <a class="button" href="#" onclick="showNotice(); event.preventDefault();">
+                <img src="images/button-1.png" alt="Unofficial Wiki">
+            </a>
+            <a class="button" href="#" onclick="showNotice(); event.preventDefault();">
+                <img src="images/button-2.png" alt="Fan Content Archive">
+            </a>
+            <!--
+            // COPY AND PASTE TO USE NOTICE, CHANGE IT ACCORDINGLY
+            <a class="button" href="#" onclick="showNotice(); event.preventDefault();">
+                <img src="images/button-2.png" alt="Fan Content Archive">
+            </a> -->
+        </div>        
         </div>
-    </div>
-    <div class="copyright-banner">
-        Copyright &copy; 2025 Pipopipo Co Ltd. (probably idk)
-    </div>
+        <div class="copyright-banner"> 
+            Created by one <a href="https://x.com/TacoTheCheese">🌮</a> <b>•</b> Transparents provided by the <b><a href="https://idol.st">Idol Story</a></b> team
+        </div>
+
+        <!-- NOTICE START -->
+        <div class="popup-overlay" id="popupOverlay" onclick="hideNotice()"></div>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <p>This doesn't lead anywhere yet! Check back soon~</p>
+                <button onclick="hideNotice()">Close</button>
+            </div>
+        </div>
+        <!-- NOTICE END -->
     <script>
+        // Idol Randomization
+            const totalImages = 12; // +1 for new
+            const randomNumber = Math.floor(Math.random() * totalImages) + 1;
+            document.querySelector('.random-idol').style.backgroundImage = `var(--image${randomNumber})`;
+
+        // Saving theme
         window.onload = function() {
             const body = document.body;
             const toggleBtn = document.querySelector('.toggle-btn');
@@ -62,14 +89,33 @@
                 localStorage.setItem("theme", "light-mode");
             }
         }
-    /* Disable right click > save */
+    // Disable right click > save
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
         });
-    /* Disable mobile long press > save */
+    // Disable mobile long press > save
         document.addEventListener("touchstart", function(e) {
             e.preventDefault();
         });
+        window.addEventListener('load', () => {
+            const banner = document.querySelector('.copyright-banner');
+            const randomBg = document.querySelector('.random-bg');
+
+            if (banner && randomBg) {
+                const bannerHeight = banner.offsetHeight;
+                randomBg.style.height = `calc(100vh - ${bannerHeight}px)`;
+            }
+        });
+        //SHOWNOTICE
+        function showNotice() {
+            document.getElementById("popupOverlay").classList.add("active");
+            document.getElementById("popup").classList.add("active");
+        }
+
+        function hideNotice() {
+            document.getElementById("popupOverlay").classList.remove("active");
+            document.getElementById("popup").classList.remove("active");
+        }
     </script>
 </body>
 </html>

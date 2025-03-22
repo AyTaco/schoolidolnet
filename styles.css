@@ -3,7 +3,73 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     color: #000000;
     transition: color 0.5s ease;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+/* POPUP START*/
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 11;
+    border: 3px dashed #000; /* Replace outline with border */
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-overlay.active,
+.popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #454545;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.popup-content button:hover {
+    background-color: #333333;
+    transform: scale(1.05);
+}
+
+.popup-content button:active {
+    background-color: #555555;
+    transform: scale(0.95);
+}
+
+/* POPUP END */
 
 .background {
     position: fixed;
@@ -90,17 +156,19 @@ body {
 }
 
 .notice {
-    background: white;
+    background: rgba(255, 255, 255, 0.736);
     color: #000000;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 16px;
+    padding-right: 25px;
+    padding-left: 25px;
     margin-top: -10px;
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom: 50px;
     border-radius: 60px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+    outline: 4px dashed #000;
+    outline-offset: -10px;
 }
 
 .button {
@@ -110,11 +178,15 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: 4px dashed #000000;
+    margin: 10px;
 }
 
 .button:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.6);
+    outline: 4px dashed #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button img {
@@ -139,6 +211,45 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+:root {
+    --image1: url('images/random/ayumu.png');
+    --image2: url('images/random/ai.png');
+    --image3: url('images/random/setsuna.png');
+    --image4: url('images/random/lanzhu.png');
+    --image5: url('images/random/kasumi.png');
+    --image6: url('images/random/shizuku.png');
+    --image7: url('images/random/rina.png');
+    --image8: url('images/random/shioriko.png');
+    --image9: url('images/random/karin.png');
+    --image10: url('images/random/kanata.png');
+    --image11: url('images/random/emma.png');
+    --image12: url('images/random/mia.png');
+}
+
+.random-idol {
+    position: absolute;
+    top: -50px;
+    right: -500px;
+    width: 1560px;
+    height: 113vh;
+    background-image: var(--image1);
+    background-size: 105%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.507));
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes changeImage {
+    from {
+        background-image: var(--image1);
+    }
+    to {
+        background-image: var(--image1);
+    }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .logo img {
@@ -151,6 +262,7 @@ body {
     .button {
         width: 200px;
         height: 80px;
+        margin: 8px;
     }
     .toggle-btn {
         padding: 6px 12px;
@@ -170,5 +282,16 @@ body {
     .button {
         width: 150px;
         height: 60px;
+    }
+
+    .random-idol {
+        display: none;
+    }
+}
+
+/* Tablet View */
+@media (max-width: 768px) {
+    .random-idol {
+        display: none;
     }
 }
