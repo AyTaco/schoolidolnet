@@ -25,10 +25,10 @@
             Things <i>will</i> change around a lot so please bear with us!
         </div>
         <div class="container">
-            <a class="button" href="#" onclick="showNotice(); event.preventDefault();">
+            <a class="button" href="https://wiki.schoolidol.net" event.preventDefault();">
                 <img src="images/button-1.png" alt="Unofficial Wiki">
             </a>
-            <a class="button" href="#" onclick="showNotice(); event.preventDefault();">
+            <a class="button" href="https://sifca.schoolidol.net" event.preventDefault();">
                 <img src="images/button-2.png" alt="Fan Content Archive">
             </a>
             <!--
@@ -39,7 +39,7 @@
         </div>        
         </div>
         <div class="copyright-banner"> 
-            Created by one <a href="https://x.com/TacoTheCheese">🌮</a> <b>•</b> Transparents provided by the <b><a href="https://idol.st">Idol Story</a></b> team
+            Created by one <a href="https://x.com/TacoTheCheese">🌮</a> <b>•</b> <!-- Omitting this one cause i disabled the randomizer: Transparents provided by the <b><a href="https://idol.st">Idol Story</a></b> team -->
         </div>
 
         <!-- NOTICE START -->
@@ -53,9 +53,11 @@
         <!-- NOTICE END -->
     <script>
         // Idol Randomization
+        /* DISABLING FOR THE FINAL VERSION
             const totalImages = 12; // +1 for new
             const randomNumber = Math.floor(Math.random() * totalImages) + 1;
             document.querySelector('.random-idol').style.backgroundImage = `var(--image${randomNumber})`;
+        */
 
         // Saving theme
         window.onload = function() {
